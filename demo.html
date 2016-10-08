@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style media="screen">
+            *{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            html,
+            body{
+                width: 100%;
+                height: 100%;
+            }
+
+            #app{
+                width: 100%;
+                height: 100%;
+                padding-left: 200px;
+                position: relative;
+            }
+
+            #app:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            nav{
+                width: 200px;
+                height: 100%;
+                background: #333;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .nav-item{
+                width: 100%;
+                height: auto;
+            }
+
+            .nav-item.active{
+                background: beige;
+            }
+
+            .nav-item .list-group-item{
+                color: #fff;
+                line-height: 40px;
+                text-align: center;
+                display: block;
+                cursor: pointer;
+            }
+
+            .list-group-item.nav-active,
+            .secondary-list-group-item.nav-active{
+                color: #fff;
+                background: goldenrod;
+            }
+
+            .secondary-nav-item{
+                width: 100%;
+                height: auto;
+                display: none;
+            }
+
+            .secondary-list-group-item{
+                width: 80%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: #666;
+                margin-left: 20%;
+                cursor: pointer;
+            }
+
+            .page-right{
+                width: 100%;
+                height: 100%;
+            }
+
+            header{
+                width: 100%;
+                height: 50px;
+                background: #ccc;
+            }
+
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-bind:my-path="currentPath">
+            <!-- 导航 -->
+			<nav>
+                <ul>
+                    <li class="nav-item">
+                        <div class="list-group-item" v-link="{ path: '/home', activeClass: 'nav-active'}">Home</div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="list-group-item" v-bind:class="{'nav-active': (currentPath == '/aboutone' || currentPath == '/abouttwo')}">About</div>
+                        <div class="secondary-nav-item">
+                            <div class="secondary-list-group-item" v-link="{ path: '/aboutone', activeClass: 'nav-active'}">About One</div>
+                            <div class="secondary-list-group-item" v-link="{ path: '/abouttwo', activeClass: 'nav-active'}">About Two</div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="list-group-item" v-bind:class="{'nav-active': (currentPath == '/messageone' || currentPath == '/messagetwo' || currentPath == '/messagethree')}">Message</div>
+                        <div class="secondary-nav-item">
+                            <div class="secondary-list-group-item" v-link="{ path: '/messageone', activeClass: 'nav-active'}">Message One</div>
+                            <div class="secondary-list-group-item" v-link="{ path: '/messagetwo', activeClass: 'nav-active'}">Message Two</div>
+                            <div class="secondary-list-group-item" v-link="{ path: '/messagethree', activeClass: 'nav-active'}">Message Three</div>
+                        </div>
+                    </li>
+                </ul>
+			</nav>
+            <!-- 右边部分 -->
+            <div class="page-right">
+                <!-- header -->
+                <header> header </header>
+
+                <!--用于渲染匹配的组件-->
+                <div class="main-page">
+                    <router-view v-bind:my-path.sync="currentPath"></router-view>
+                </div>
+
+                <div class="">
+                    <p>当前路径：{{$route.path}}</p>
+                    <p>当前参数：{{$route.params | json}}</p>
+                    <p>路由名称：{{$route.name}}</p>
+                    <p>路由查询参数：{{$route.query | json}}</p>
+                    <p>当前 currentPath-----：{{currentPath}}</p>
+                </div>
+
+            </div>
+		</div>
+
+
+        <!-- 模拟页面   每个页面定义成一个组件 -->
+
+		<template id="home">
+			<div>
+				<h1>Home</h1>
+				<p>{{msg}}</p>
+			</div>
+		</template>
+
+
+		<template id="aboutone">
+			<div>
+				<h1>About One</h1>
+				<p>This is the about.  {{myPath}}</p>
+			</div>
+		</template>
+
+
+        <template id="abouttwo">
+			<div>
+				<h1>About Two</h1>
+				<p>This is the about.</p>
+			</div>
+		</template>
+
+
+        <template id="messageone">
+			<div>
+				<h1>Message one</h1>
+				<p>This is the message.</p>
+			</div>
+		</template>
+
+        <template id="messagetwo">
+			<div>
+				<h1>Message two</h1>
+				<p>This is the message.</p>
+			</div>
+		</template>
+
+
+        <template id="messagethree">
+			<div>
+				<h1>Message three</h1>
+				<p>This is the message.</p>
+			</div>
+		</template>
+
+
+	</body>
+
+    <script src="js/jquery.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+
+    <script src="main.js"></script>
+
+</html>

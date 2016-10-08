@@ -3,106 +3,106 @@ $(document).ready(function(){
     /* 创建组件构造器  */
     var Home = Vue.extend({
         template: '#home',
-        props: ['myPath'],
+        // props: ['myPath'],
         data: function() {
             return {
                 msg: 'Hello, vue router!',
             }
         },
-        route: {
-            data: function(transition){
-                transition.next({
-                    myPath: transition.to.path
-                })
-                console.log(this.myPath)
-            }
-        }
+        // route: {
+        //     data: function(transition){
+        //         transition.next({
+        //             myPath: transition.to.path
+        //         })
+        //         console.log(this.myPath)
+        //     }
+        // }
 
     })
 
     var Aboutone = Vue.extend({
         template: '#aboutone',
-        props: ['myPath'],
+        // props: ['myPath'],
         data: function() {
             return {
             }
         },
-        route: {
-            data: function(transition){
-                transition.next({
-                    myPath: transition.to.path
-                })
-                console.log(this.myPath)
-            }
-        }
+        // route: {
+        //     data: function(transition){
+        //         transition.next({
+        //             myPath: transition.to.path
+        //         })
+        //         console.log(this.myPath)
+        //     }
+        // }
     })
 
     var Abouttwo = Vue.extend({
         template: '#abouttwo',
-        props: ['myPath'],
+        // props: ['myPath'],
         data: function() {
             return {
             }
         },
-        route: {
-            data: function(transition){
-                transition.next({
-                    myPath: transition.to.path
-                })
-                console.log(this.myPath)
-            }
-        }
+        // route: {
+        //     data: function(transition){
+        //         transition.next({
+        //             myPath: transition.to.path
+        //         })
+        //         console.log(this.myPath)
+        //     }
+        // }
     })
 
     var Messageone = Vue.extend({
         template: '#messageone',
-        props: ['myPath'],
+        // props: ['myPath'],
         data: function() {
             return {
             }
         },
-        route: {
-            data: function(transition){
-                transition.next({
-                    myPath: transition.to.path
-                })
-                console.log(this.myPath)
-            }
-        }
+        // route: {
+        //     data: function(transition){
+        //         transition.next({
+        //             myPath: transition.to.path
+        //         })
+        //         console.log(this.myPath)
+        //     }
+        // }
     })
 
     var Messagetwo = Vue.extend({
         template: '#messagetwo',
-        props: ['myPath'],
+        // props: ['myPath'],
         data: function() {
             return {
             }
         },
-        route: {
-            data: function(transition){
-                transition.next({
-                    myPath: transition.to.path
-                })
-                console.log(this.myPath)
-            }
-        }
+        // route: {
+        //     data: function(transition){
+        //         transition.next({
+        //             myPath: transition.to.path
+        //         })
+        //         console.log(this.myPath)
+        //     }
+        // }
     })
 
     var Messagethree = Vue.extend({
         template: '#messagethree',
-        props: ['myPath'],
+        // props: ['myPath'],
         data: function() {
             return {
             }
         },
-        route: {
-            data: function(transition){
-                transition.next({
-                    myPath: transition.to.path
-                })
-                console.log(this.myPath)
-            }
-        }
+        // route: {
+        //     data: function(transition){
+        //         transition.next({
+        //             myPath: transition.to.path
+        //         })
+        //         console.log(this.myPath)
+        //     }
+        // }
     })
 
     /* 创建路由器  */
@@ -144,7 +144,7 @@ $(document).ready(function(){
     var myApp = Vue.extend({
         data: function(){
             return {
-                currentPath: ''
+                // currentPath: ''
             }
         }
 

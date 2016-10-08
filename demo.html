@@ -105,7 +105,8 @@
 	</head>
 
 	<body>
-		<div id="app" v-bind:my-path="currentPath">
+		<!-- <div id="app" v-bind:my-path="currentPath"> -->
+        <div id="app">
             <!-- 导航 -->
 			<nav>
                 <ul>
@@ -113,14 +114,14 @@
                         <div class="list-group-item" v-link="{ path: '/home', activeClass: 'nav-active'}">Home</div>
                     </li>
                     <li class="nav-item">
-                        <div class="list-group-item" v-bind:class="{'nav-active': (currentPath == '/aboutone' || currentPath == '/abouttwo')}">About</div>
+                        <div class="list-group-item" v-bind:class="{'nav-active': ($route.path == '/aboutone' || $route.path == '/abouttwo')}">About</div>
                         <div class="secondary-nav-item">
                             <div class="secondary-list-group-item" v-link="{ path: '/aboutone', activeClass: 'nav-active'}">About One</div>
                             <div class="secondary-list-group-item" v-link="{ path: '/abouttwo', activeClass: 'nav-active'}">About Two</div>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div class="list-group-item" v-bind:class="{'nav-active': (currentPath == '/messageone' || currentPath == '/messagetwo' || currentPath == '/messagethree')}">Message</div>
+                        <div class="list-group-item" v-bind:class="{'nav-active': ($route.path == '/messageone' || $route.path == '/messagetwo' || $route.path == '/messagethree')}">Message</div>
                         <div class="secondary-nav-item">
                             <div class="secondary-list-group-item" v-link="{ path: '/messageone', activeClass: 'nav-active'}">Message One</div>
                             <div class="secondary-list-group-item" v-link="{ path: '/messagetwo', activeClass: 'nav-active'}">Message Two</div>
@@ -136,7 +137,8 @@
 
                 <!--用于渲染匹配的组件-->
                 <div class="main-page">
-                    <router-view v-bind:my-path.sync="currentPath"></router-view>
+                    <!-- <router-view v-bind:my-path.sync="currentPath"></router-view> -->
+                    <router-view></router-view>
                 </div>
 
                 <div class="">
@@ -144,7 +146,7 @@
                     <p>当前参数：{{$route.params | json}}</p>
                     <p>路由名称：{{$route.name}}</p>
                     <p>路由查询参数：{{$route.query | json}}</p>
-                    <p>当前 currentPath-----：{{currentPath}}</p>
+                    <!-- <p>当前 currentPath-----：{{currentPath}}</p> -->
                 </div>
 
             </div>
@@ -164,7 +166,7 @@
 		<template id="aboutone">
 			<div>
 				<h1>About One</h1>
-				<p>This is the about.  {{myPath}}</p>
+				<p>This is the about.</p>
 			</div>
 		</template>
 
